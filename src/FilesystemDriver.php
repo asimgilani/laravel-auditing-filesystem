@@ -79,9 +79,9 @@ class FilesystemDriver implements AuditDriver
         $writer = Writer::createFromFileObject(new \SplTempFileObject());
 
         $auditArray = $this->sanitize($this->getAuditFromModel($model));
-        if ($includeHeader) {
-            $writer->insertOne($this->headerRow($auditArray));
-        }
+        //if ($includeHeader) {
+        //    $writer->insertOne($this->headerRow($auditArray));
+        //}
         $writer->insertOne($auditArray);
 
         // Remove trailing newline
