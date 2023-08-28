@@ -41,12 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Asimgilani\\Auditing\\Drivers\\": "src/"
+            "BetaPeak\\Auditing\\Drivers\\": "src/"
         }
     },
     "autoload-dev": {
       "psr-4": {
-        "Asimgilani\\Auditing\\Drivers\\Tests\\": "tests/"
+        "BetaPeak\\Auditing\\Drivers\\Tests\\": "tests/"
       }
   },
     "require-dev": {
