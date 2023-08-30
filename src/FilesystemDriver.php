@@ -100,14 +100,7 @@ class FilesystemDriver implements AuditDriver
     {
         foreach ($audit as $key => $value) {
             if ($key !== 'old_values' && $key !== 'new_values') {
-                if (!is_numeric($value)) {
-                    if (!preg_match('/^".*"$/', $value)) {
-                        $audit[$key] = '"' . $value . '"';
-                    }
-                } else {
-                    // If the value is numeric, add double quotes around it too.
-                    $audit[$key] = '"' . $value . '"';
-                }
+                $audit[$key] = strval($value);
             }
         }
 
