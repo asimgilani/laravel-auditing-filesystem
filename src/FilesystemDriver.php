@@ -98,6 +98,15 @@ class FilesystemDriver implements AuditDriver
      */
     protected function sanitize(array $audit)
     {
+         foreach ($audit as $key => $value) {
+            if (!is_numeric($value)) {
+                $audit[$key] = '"' . str_replace('"', '""', $value) . '"';
+            } else {
+                // If the value is numeric, add double quotes around it too.
+                $audit[$key] = '"' . $value . '"';
+            }
+        }
+        
         $audit['old_values'] = json_encode($audit['old_values']);
         $audit['new_values'] = json_encode($audit['new_values']);
 
